@@ -4,7 +4,7 @@ import numpy as np
 from scipy import interp
 from matplotlib import pyplot as plt
 from sklearn.metrics import roc_curve, auc
-from sklearn.metrics import confusion_matrix, roc_auc_score
+from sklearn.metrics import confusion_matrix
 from mlxtend.plotting import plot_confusion_matrix
 
 ####plotting roc curve####
@@ -17,12 +17,11 @@ def plot_roc_curve(model, X, y, weight_path, save_file, label = None):
     y_labels = np.argmax(y, axis = 1)
     fpr, tpr, thresholds = roc_curve(y_labels, y_pred_probs[:, 1])
     fig = plt.figure(figsize=(15,15))
-    plt.plot(fpr, tpr, linewidth=2, label = "AUC score = "+str(roc_auc_score(y_labels, y_pred_probs[:,1])))
+    plt.plot(fpr, tpr, linewidth=2, label = label)
     plt.plot([0, 1], [0, 1], "k--")
     plt.axis([0, 1, 0, 1])
     plt.xlabel("False Positive Rate")
     plt.ylabel("True Positive Rate")
-    plt.legend(loc="lower right", title="AUC score")
     if not os.path.exists('visualization'):
         os.makedirs('visualization')
     fig.savefig(os.path.join("visualization",save_file+".png"), transparent=True, dpi=5*fig.dpi)
