@@ -14,6 +14,9 @@ The model was developed using residual learning paradigms. Additionally, separab
 The model's training parameters have ben defined in the "train_model()" method. Model can be training using the same method. One must however, refer to the previously mentioned scripts along with this script in order to gain insight into the parameters for the functions.
 
 # Performance of the network
-The model's performance can be visualized using the "performance.py" script which includes the various methods necessary in order to illustrate the ROC curve and the confusion matrix.
+The model's performance can be visualized using the "performance.py" script which includes the various methods necessary in order to illustrate the ROC curve and the confusion matrix. One may also choose to visualize the grad-CAMs for the convolution layers using keras-vis library.
 
 # Requirements
+Keras(v2.2.2) 
+keras-vis(v0.4.1)(optional)
+scikit-learn(v0.19.2)  
